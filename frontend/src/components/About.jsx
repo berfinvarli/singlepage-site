@@ -1,14 +1,30 @@
-import React from 'react';
+import React from "react";
 
 const About = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4">About Us</h2>
-        <p className="text-gray-700">This is the About section.</p>
-      </div>
-    </section>
+    <div
+      id="about-section"
+      style={{
+        minHeight: "50vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        padding: "60px 20px",
+        backgroundColor: "#ffffff",
+      }}
+    >
+      <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "20px" }}>
+        About Me
+      </h2>
+      <p style={{ maxWidth: "700px", lineHeight: 1.6 }}>
+        This is a simple single-page website built using React for the frontend
+        and Spring Boot for the backend. It includes modern UI elements,
+        smooth scrolling, and responsive design.
+      </p>
+    </div>
   );
-}
+};
 
 export default About;
