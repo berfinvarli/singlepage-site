@@ -1,24 +1,35 @@
 package com.berry.controller;
 
 import com.berry.model.ContactDTO;
+import com.berry.model.ContactMessage;
+import com.berry.repository.ContactMessageRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/contact")
 @CrossOrigin(origins = "http://localhost:5173")
 public class ContactController {
 
-    @PostMapping
-    public ResponseEntity<String> submitContact(@RequestBody ContactDTO contact) {
-        System.out.println("New Contact Message from " + contact.getName() + ": " + contact.getMessage());
+    @Autowired
+    private ContactMessageRepository messageRepository;
 
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+    @PostMapping("/messages")
+    public ResponseEntity<String> submitContact(@RequestBody ContactDTO contactDTO) {
+        ContactMessage message = new ContactMessage();
+        message.setName(contactDTO.getName());
+        message.setEmail(contactDTO.getEmail());
+        message.setMessage(contactDTO.getMessage());
+        message.setSentAt(LocalDateTime.now());
+        message.setRead(false);
 
-        return ResponseEntity.ok("Message received");
+        messageRepository.save(message);
+
+        System.out.println("New Contact Message from " + contactDTO.getName() + ": " + contactDTO.getMessage());
+
+        return new ResponseEntity<>("Message received and saved", HttpStatus.CREATED);
     }
 }
