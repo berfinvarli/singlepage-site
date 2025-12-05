@@ -1,25 +1,53 @@
 # SinglePageWebsite
 
-This is a **modern, responsive, single-page website** built with **React** for the frontend and **Spring Boot** for the backend.
-
----
+A modern and responsive single-page website built with **React** (frontend) and **Spring Boot** (backend).
 
 ## Features
 
-- Fully responsive layout for desktop and mobile
-- Modern design with centered contact form
-- Contact form validation:
+- Fully responsive layout for desktop and mobile devices  
+- Clean, modern UI  
+- Admin panel with:
+  - Login system
+  - Inbox messages list
+  - Archive message system
+  - Mark-as-read functionality  
+- Contact form with validation:
   - Name must be at least 2 characters
   - Message must be at least 5 characters
-- Loading spinner while sending messages
-- Error and success messages displayed dynamically
-- Backend powered by **Spring Boot**
-- Cross-origin enabled for local React frontend
+- Smooth loading states, animations, and alerts
+- REST API communication between React & Spring Boot
+- MySQL database integration
 
 ---
 
 ## Technologies Used
 
-- **Frontend:** React, Tailwind CSS
-- **Backend:** Spring Boot, Java
-- **API:** RESTful POST endpoint for contact form
+### **Frontend**
+- React
+- CSS Modules
+- Fetch API
+- Responsive layout design
+
+### **Backend**
+- Spring Boot
+- REST API
+- Spring Security
+- MySQL & JPA
+- CORS enabled for localhost development
+
+---
+
+## Running the Project
+
+1. Start Backend
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+2. Start Frontend
+```bash
+cd frontend
+npm install
+npm start
+```
