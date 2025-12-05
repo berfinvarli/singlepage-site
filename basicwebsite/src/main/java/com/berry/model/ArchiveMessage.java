@@ -4,40 +4,36 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "contact_messages")
-public class ContactMessage {
+@Table(name = "archive_messages")
+public class ArchiveMessage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    private Long originalMessageId;
 
-    @Column(nullable = false)
+    private String name;
     private String email;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String message;
 
-    private LocalDateTime sentAt = LocalDateTime.now();
-
-    private boolean isRead = false;
-
-    private boolean archived = false;
+    private LocalDateTime sentAt;
 
     public Long getId() { return id; }
+    public Long getOriginalMessageId() { return originalMessageId; }
+    public void setOriginalMessageId(Long originalMessageId) { this.originalMessageId = originalMessageId; }
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
     public String getMessage() { return message; }
     public void setMessage(String message) { this.message = message; }
+
     public LocalDateTime getSentAt() { return sentAt; }
     public void setSentAt(LocalDateTime sentAt) { this.sentAt = sentAt; }
-    public boolean isRead() { return isRead; }
-    public void setRead(boolean read) { isRead = read; }
-
-    public boolean isArchived() { return archived; }
-    public void setArchived(boolean archived) { this.archived = archived; }
 }

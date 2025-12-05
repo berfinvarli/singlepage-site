@@ -9,7 +9,7 @@ const Hero = () => {
         A simple and elegant site built with React & Spring Boot.
       </p>
       <button
-        className={styles.button}
+        className={`${styles.button} ${styles.subtitle}`}
         onMouseOver={(e) => (e.target.style.opacity = "0.85")}
         onMouseOut={(e) => (e.target.style.opacity = "1")}
         onClick={() => window.scrollTo({ top: 600, behavior: "smooth" })}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Spinner from "../Spinner/Spinner";
+import styles from "./Contact.module.css";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -12,7 +13,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // input kontrolü
     if (name.length < 2) {
       setStatusMessage("Name must be at least 2 characters.");
       setIsError(true);
@@ -36,7 +36,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/contact/messages", 
+        "http://localhost:8080/api/contact/messages",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -64,86 +64,49 @@ const Contact = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#f5f5f5",
-        padding: "40px 20px",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "450px",
-          padding: "30px",
-          borderRadius: "10px",
-          backgroundColor: "#fff",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
-        }}
-      >
-        <h2 style={{ fontSize: "26px", fontWeight: "bold", textAlign: "center" }}>
-          Contact Us
-        </h2>
-        <form
-          onSubmit={handleSubmit}
-          style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-        >
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <h2 className={styles.title}>Contact Us</h2>
+
+        <form onSubmit={handleSubmit} className={styles.form}>
           <input
             type="text"
             placeholder="Your Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
-            style={{ padding: "12px", borderRadius: "6px", border: "1px solid #ccc" }}
+            className={`${styles.input} ${styles.subtitle}`}
           />
+
           <input
             type="email"
             placeholder="Your Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
-            style={{ padding: "12px", borderRadius: "6px", border: "1px solid #ccc" }}
+            className={`${styles.input} ${styles.subtitle}`}
           />
+
           <textarea
             placeholder="Your Message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            required
-            style={{ padding: "12px", borderRadius: "6px", border: "1px solid #ccc", minHeight: "100px" }}
+            className={`${styles.textarea} ${styles.subtitle}`}
           />
+
           <button
             type="submit"
             disabled={isLoading}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "12px",
-              borderRadius: "6px",
-              backgroundColor: isLoading ? "#999" : "#1976d2",
-              color: "#fff",
-              cursor: isLoading ? "not-allowed" : "pointer",
-              fontWeight: "bold",
-              gap: "8px",
-            }}
+            className={`${styles.button} ${styles.subtitle}`}
           >
             {isLoading && <Spinner size={18} color="#fff" />}
             {isLoading ? "Sending..." : "Send"}
           </button>
         </form>
+
         {statusMessage && (
           <p
-            style={{
-              marginTop: "12px",
-              color: isError ? "red" : "green",
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
+            className={`${styles.status}  ${styles.subtitle} ${
+              isError ? styles.error : styles.success
+            }`}
           >
             {statusMessage}
           </p>

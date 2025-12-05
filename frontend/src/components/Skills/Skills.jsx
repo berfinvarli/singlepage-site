@@ -19,7 +19,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className={styles.section} id="skills-section">
+    <div className={styles.skills} id="skills-section">
       <h2 className={styles.title}>My Skills</h2>
       <div className={styles.grid}>
         {skills.map((skill) => (

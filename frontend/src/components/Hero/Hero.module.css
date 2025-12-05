@@ -7,9 +7,10 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
+  color: white;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  background-image: url('/images/background.png');
+  
 }
 
 .title {

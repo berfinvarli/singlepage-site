@@ -1,11 +1,12 @@
-.section {
-  width: 90%;
-  max-width: 700px;
+.about {
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 80px 0;
+  width: 100%;
+  max-width: none;
   text-align: center;
   background-color: #ffffff;
   box-sizing: border-box;
+  
 }
 
 .title {
@@ -14,7 +15,7 @@
   margin-bottom: 20px;
 }
 
-.text {
+.subtitle {
   line-height: 1.6;
 }
 
