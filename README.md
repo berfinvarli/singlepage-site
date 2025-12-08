@@ -1,12 +1,12 @@
 # SinglePageWebsite
 
-A modern and responsive single-page website built with **React** (frontend) and **Spring Boot** (backend).
+This project is a full-stack single-page application designed to demonstrate modern web development practices. It features **React** for an interactive frontend and a secure, robust **Spring Boot** RESTful backend service, including an integrated admin panel for message management.
 
 ## Features
 
 - Fully responsive layout for desktop and mobile devices  
 - Clean, modern UI  
-- Admin panel with:
+- Admin Panel (Access: /admin) with:
   - Login system
   - Inbox messages list
   - Archive message system
@@ -38,6 +38,13 @@ A modern and responsive single-page website built with **React** (frontend) and 
 ---
 
 ## Running the Project
+
+### **Prerequisites**
+To run the project locally, you must have the following installed on your machine:
+- Node.js & npm (Required for the Frontend)
+- Java Development Kit (JDK) 17+ (Required for Spring Boot)
+- Maven (For backend dependencies and execution)
+- MySQL Server (For the database)
 
 1. Start Backend
 ```bash
